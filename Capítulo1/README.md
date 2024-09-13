@@ -1,10 +1,10 @@
 # Nombre del laboratorio 
-
+Instalación de Postgresql en Ubuntu Linux desde respositorio
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
-- Objetivo1
-- Objetivo2
-- Objetivo3
+- Instalar Postgresql en un servidor Ubuntu Linux usando el repositorio oficial
+- Usar la herramienta psql para inspeccionar los objetos del sistema
+- Subir y baja la base de datos.
 
 ## Objetivo Visual 
 Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
