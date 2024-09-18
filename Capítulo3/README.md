@@ -1,41 +1,125 @@
-# Nombre del laboratorio 
+# Manejo de transacciones y MVCC
 
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
-- Objetivo1
-- Objetivo2
-- Objetivo3
+- Observar el funcionamiento del bloqueo de registros
+- Aplicar el comando VACUUM para eliminar tuplas muertas u obsoletas.
 
 ## Objetivo Visual 
 Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
 
-![diagrama1](../images/img1.png)
+![diagrama1](../images/lab3/img1.png)
 
 ## Duración aproximada:
-- xx minutos.
+- 30 minutos.
 
 ## Tabla de ayuda:
-Agregar una tabla con la información que pueda requerir el participante durante el laboratorio, como versión de software, IPs de servers, usuarios y credenciales de acceso.
-| Contraseña | Correo | Código |
-| --- | --- | ---|
-| Netec2024 | edgardo@netec.com | 123abc |
 
 ## Instrucciones 
 <!-- Proporciona pasos detallados sobre cómo configurar y administrar sistemas, implementar soluciones de software, realizar pruebas de seguridad, o cualquier otro escenario práctico relevante para el campo de la tecnología de la información -->
-### Tarea 1. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
+### Tarea 1. Simular dos transacciones simultáneas que modifican un mismo registro.
 
-Paso 2. <!-- Añadir instrucción -->
+Paso 1.  Crear una sesión psql y establecer el prompt con el nombre "ALICE"
+```shell
+psql curso 
+\set PROMPT1 'ALICE> '
+```
+Paso 2.  Crear otra sesión o ventana de psql y establecer el prompt con el nombre "BOB"
+```shell
+psql curso
+\set PROMPT1 'BOB> '
+```
 
-Paso 3. <!-- Añadir instrucción -->
+Paso 2. Crear una tabla llamada mvcc_lab con los siguientes campos: id integer, valor integer.
+```shell 
+BOB> CREATE TABLE mvcc_lab ( id integer, valor integer);
+```
 
-### Tarea 2. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
+Paso 3. Añadir datos de prueba a la tabla recien creada.
+```shell 
+BOB> INSERT INTO mvcc_lab SELECT a,a from generate_series(1,10) as a;
+```
 
-Paso 2. <!-- Añadir instrucción -->
+Paso 4. Iniciar una transacción en la ventana ALICE que actualice el registro con id=1 al valor 10 de la tabla mvcc_lab
+```shell 
+ALICE> BEGIN;
+ALICE> UPDATE mvcc_lab SET valor=10 WHERE id=1;
+UPDATE 1
+ALICE>
+```
+Paso 5. Iniciar una transacción en la ventana BOB que actualice el registro con id=1 al valor 20 de la tabla mvcc_lab
+```shell 
+BOB> BEGIN;
+BOB> UPDATE mvcc_lab SET valor=20 WHERE id=1;
+_(esperando...)
+```
+Paso 6. Confirme la transacción de la terminal ALICE y consulte el valor del registro con id = 1
+```shell 
+ALICE> COMMIT;
+ALICE> SELECT valor FROM mvcc_lab WHERE id=1;
+ valor
+-------
+ 10
+(1 fila)
+```
+Paso 7. Consulte el valor del registro id=1 en la terminal BOB
+```shell 
+BOB> SELECT valor FROM mvcc_lab WHERE id=1;
+ valor
+-------
+ 20
+(1 fila)
+```
+Paso 8. Confirme la transacción en la terminal BOB y consulte el valor del registro en la terminal ALICE
+```shell 
+UPDATE 1 -- Mensaje cuando ALICE confirmó transaccion
+BOB>COMMIT;
+ALICE>SELECT valor FROM mvcc_lab WHERE id=1;
+ valor
+-------
+ 20
+(1 fila)
 
-Paso 3. <!-- Añadir instrucción -->
+```
+
+### Tarea 2. Utilizar el comando VACUUM para eliminar las tuplas muertas u obsoletas de una tabla.
+Paso 1. En una sesión psql crear una tabla llamada "bloat" con un único campo de nombre id y tipo entero;
+```shell 
+psql curso
+CREATE TABLE bloat ( id integer );
+```
+Paso 2. Insertar datos de prueba o ficticios.
+```shell 
+INSERT INTO bloat SELECT generate_series(1,1000000);
+```
+Paso 3. Instalar la extensión pgstattuple que permite conocer el número de registros borrados.
+```shell 
+CREATE EXTENSION pgstattuple;
+#CREATE EXTENSION
+```
+Paso 4. Consultar el estado de la tabla "bloat" con la extensión pgstattuple.
+```shell 
+SELECT * FROM pgstattuple('bloat');
+```
+Paso 5. Borrar la table bloat con el comando DELETE
+```shell 
+DELETE FROM bloat;
+```
+Paso 6. Consultar nuevamente el estado de la tabla "bloat" con la extensión pgstattuple.
+```shell 
+SELECT * FROM pgstattuple('bloat');
+```
+Paso 7. Aplicar el comando VACUUM a la tabla bloat
+```shell 
+VACUUM bloat;
+#VACUUM
+```
+Paso 8. Consultar nuevamente el estado de la tabla "bloat" con la extensión pgstattuple.
+```shell 
+SELECT * FROM pgstattuple('bloat');
+```
+
 
 ### Resultado esperado
 En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
-![imagen resultado](../images/img3.png)
+![imagen resultado](../images/lab3/img2.png)
