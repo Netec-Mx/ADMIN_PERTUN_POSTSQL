@@ -1,41 +1,105 @@
-# Nombre del laboratorio 
+# Configuración y monitoreo de la base de datos
 
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
-- Objetivo1
-- Objetivo2
-- Objetivo3
+- Modificar parámetros de postgresql
+- Configurar el sistema de logging de postgresql
+- Monitorear los recursos utilizados por las consultas sql
 
 ## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
 
-![diagrama1](../images/img1.png)
+![diagrama1](../images/lab7/img1.png)
 
 ## Duración aproximada:
-- xx minutos.
+- 30 minutos.
 
 ## Tabla de ayuda:
-Agregar una tabla con la información que pueda requerir el participante durante el laboratorio, como versión de software, IPs de servers, usuarios y credenciales de acceso.
-| Contraseña | Correo | Código |
-| --- | --- | ---|
-| Netec2024 | edgardo@netec.com | 123abc |
 
 ## Instrucciones 
 <!-- Proporciona pasos detallados sobre cómo configurar y administrar sistemas, implementar soluciones de software, realizar pruebas de seguridad, o cualquier otro escenario práctico relevante para el campo de la tecnología de la información -->
-### Tarea 1. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
+### Tarea 1. Modifique el archivo postgresql.conf para aumentar el número máximo de conexiones a 200.
+Paso 1. Edite el archivo postgresql.conf.
+```shell
+sudo vi /etc/postgresql/[version instalada]/main/postgresql.conf
+```
+Paso 2. Paso 4: Buscar la línea que contiene 'max_connections' y modificarla.
+```shell
+max_connections = 200
+```
+Guardar cambios y salir.
 
-Paso 2. <!-- Añadir instrucción -->
+Paso 3. Reiniciar el servicio postgresql.
+```shell
+sudo service postgresql restart
+```
+Paso 3. Verificar el nuevo valor de max_connections
+```shell
+psql -c "SHOW max_connections;"
+```
+### Resultado esperado
+En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
+![imagen resultado](../images/lab7/img2.png)
 
-Paso 3. <!-- Añadir instrucción -->
+### Tarea 2. Configurar el logging para capturar consultas que tarden más de 1 segundo en ejecutarse
+Paso 1. Edite el archivo postgresql.conf.
+```shell
+sudo vi /etc/postgresql/[version instalada]/main/postgresql.conf
+```
 
-### Tarea 2. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
+Paso 2. Modificar o añadir la siguiente línea:
+```shell
+log_min_duration_statement = 1000  # log queries que requiren más de un segundo
+```
 
-Paso 2. <!-- Añadir instrucción -->
+Paso 3. Guardar los cambios y salir del editor
 
-Paso 3. <!-- Añadir instrucción -->
+Paso 4. Reiniciar el servicio postgresql.
+```shell
+sudo service postgresql restart
+```
+Paso 5. Ejecutar una consulta lenta para probar
+```shell
+psql -c "SELECT pg_sleep(2); SELECT 'Consulta lenta';"
+```
+Paso 6. Verificar el log
+```shell
+sudo tail -n 20 /var/log/postgresql/postgresql-2024-09-19_120000.log
+```
 
 ### Resultado esperado
 En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
-![imagen resultado](../images/img3.png)
+![imagen resultado](../images/lab7/img3.png)
+
+### Tarea 3. Utilizar pg_stat_statements para identificar las consultas más costosas
+
+Paso 1. Edite el archivo postgresql.conf.
+```shell
+sudo vi /etc/postgresql/[version instalada]/main/postgresql.conf
+```
+Modificar o agregar la siguiente línea:
+```shell
+shared_preload_libraries = 'pg_stat_statements'
+```
+Paso 2. Reiniciar el servicio postgresql.
+```shell
+sudo service postgresql restart
+```
+Paso 3. Crear la extension pg_stat_statements.
+```shell
+psql -d curso -c "CREATE EXTENSION pg_stat_statements;"
+```
+Paso 4. Ejecutar consultas de ejemplo.
+```shell
+psql -c "SELECT * FROM pg_stat_statements_reset();" # se usa para resetear el registro.
+psql -c "SELECT * FROM pg_class;"
+psql -c "SELECT pg_sleep(2); SELECT count(*) FROM pg_attribute;"
+```
+Paso 5. Consultar la vista pg_stat_statements.
+```shell
+psql -c "SELECT query, calls, total_exec_time, rows, 100.0 * shared_blks_hit /
+               nullif(shared_blks_hit + shared_blks_read, 0) AS hit_percent
+        FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 5;"
+```
+### Resultado esperado
+En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
+![imagen resultado](../images/lab7/img4.png)

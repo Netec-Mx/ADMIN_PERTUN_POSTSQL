@@ -39,7 +39,7 @@ sudo apt update
 ```
 Paso 5. Ejecutar el comando de instalación
 ```shell
-sudo apt install postgresql postgresql-contrib
+sudo apt install postgresql-14 postgresql-contrib
 ```
 Paso 6: Revisar el estado del servidor
 ```shell
@@ -63,7 +63,6 @@ sudo service postgresql status
 ```
 
 ### Resultado esperado
-En esta sección, se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab1/img2.png)
 
 ### Tarea 2. Usar la herramienta psql para explorar los recursos de la base de datos creada.
