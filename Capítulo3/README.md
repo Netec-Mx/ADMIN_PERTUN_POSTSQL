@@ -6,7 +6,6 @@ Al finalizar la práctica, serás capaz de:
 - Aplicar el comando VACUUM para eliminar tuplas muertas u obsoletas.
 
 ## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
 
 ![diagrama1](../images/lab3/img1.png)
 

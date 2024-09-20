@@ -3,7 +3,7 @@
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
 - Realizar un backup lógico usando el comando pg_dump
-- Realizar un bakupc físico usando el comando pg_basebackup
+- Realizar un backup físico usando el comando pg_basebackup
 
 ## Objetivo Visual 
 Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
