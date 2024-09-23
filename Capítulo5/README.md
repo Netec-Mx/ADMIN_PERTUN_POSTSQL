@@ -34,7 +34,7 @@ Paso 3. En el servidor primario, edite pg_hba.conf para permitir la conexión de
 host replication all <IP_SECUNDARIO>/32 md5
 ```
 
-Paso 4. Crear un usuario llamado replicator y luego reiniciar el servidor primario
+Paso 4. Crear un usuario llamado 'replicator' con privilegio 'replication' y luego reiniciar el servidor primario.
 ```shell
 psql curso
 CREATE USER replicator WITH replication PASSWORD 'secret';
@@ -43,37 +43,43 @@ CREATE USER replicator WITH replication PASSWORD 'secret';
 sudo service postgresql restart
 ```
 
-Paso 5. En el secundario realice un backup físico del primario.
+Paso 5. En el secundario pare el servicio y borre el directorio de datos 
 ```shell
+sudo service postgresql stop
 sudo rm -rf /var/lib/postgresql/[version]/main/*
+```
+
+Paso 6. En el secundario realice un backup físico del primario.
+```shell
 pg_basebackup -h <IP_PRIMARIO> -D /var/lib/postgresql/[version]/main -P -U replicator -R
 ```
 
-Paso 6. Edite la configuración de postresql en el servidor secuandario.
+Paso 7. Edite la configuración de postresql en el servidor secundario y luego inicie el servicio
 ```shell
 hot_standby = on
 ```
-
-Paso 6. 2.6. Crea o edita el archivo postgresql.auto.conf y reinicie el servidor secundario.
 ```shell
-primary_conninfo = 'host=<IP_PRIMARIO> port=5432 user=replicator password=<PASSWORD>'
-```
-```shell
-sudo service postgresql restart
+sudo service postgresql start
 ```
 
-Paso 7. Probar la replicación. En el servidor primario, cree una tabla y inserte datos:
+Paso 8. Probar la replicación. En el servidor primario, cree una tabla y inserte datos:
 ```shell
 CREATE TABLE test_replication (id SERIAL PRIMARY KEY, data TEXT);
 INSERT INTO test_replication (data) VALUES ('Test replicación asíncrona');
 ```
 
-Paso 8. 3.2. En el servidor secundario, verifique que los datos se hayan replicado.
+Paso 9. En el servidor secundario, verifique que los datos se hayan replicado.
 ```shell
 SELECT * FROM test_replication;
 ```
+
+Paso 10. En el servidor primario revise el estado de la replicación.
+```shell
+SELECT * pg_stat_replication;
+```
+
 ### Resultado esperado
-![imagen resultado](../images/lab5/img2.png)
+![imagen resultado](../images/lab5/img3.png)
 
 
 ### Configurar la replicación síncrona para los servidores de la tarea1.
