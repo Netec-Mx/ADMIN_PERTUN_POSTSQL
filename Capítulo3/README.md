@@ -120,5 +120,4 @@ SELECT * FROM pgstattuple('bloat');
 
 
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab3/img2.png)
