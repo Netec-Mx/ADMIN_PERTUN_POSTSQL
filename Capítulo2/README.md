@@ -46,7 +46,6 @@ Paso 3. Consultar la estructura de la tabla para verificar la creación:
 ```
 
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab2/img2.png)
 
 ### Tarea 2. Analizar el plan de ejecución de una sentencia SQL usando EXPLAIN.
@@ -62,5 +61,4 @@ EXPLAIN SELECT a.id, a.fecha FROM facturas a JOIN facturas_item b ON a.id = b.fa
 
 
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab2/img3.png)
