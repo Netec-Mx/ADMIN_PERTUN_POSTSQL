@@ -16,13 +16,13 @@ Al finalizar la práctica, serás capaz de:
 ## Tabla de ayuda:
 
 ## Instrucciones 
-<!-- Proporciona pasos detallados sobre cómo configurar y administrar sistemas, implementar soluciones de software, realizar pruebas de seguridad, o cualquier otro escenario práctico relevante para el campo de la tecnología de la información -->
+
 ### Tarea 1. Modifique el archivo postgresql.conf para aumentar el número máximo de conexiones a 200.
 Paso 1. Edite el archivo postgresql.conf.
 ```shell
 sudo vi /etc/postgresql/[version instalada]/main/postgresql.conf
 ```
-Paso 2. Paso 4: Buscar la línea que contiene 'max_connections' y modificarla.
+Paso 2. Buscar la línea que contiene 'max_connections' y modificarla.
 ```shell
 max_connections = 200
 ```
@@ -32,12 +32,11 @@ Paso 3. Reiniciar el servicio postgresql.
 ```shell
 sudo service postgresql restart
 ```
-Paso 3. Verificar el nuevo valor de max_connections
+Paso 4. Verificar el nuevo valor de max_connections
 ```shell
 psql -c "SHOW max_connections;"
 ```
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab7/img2.png)
 
 ### Tarea 2. Configurar el logging para capturar consultas que tarden más de 1 segundo en ejecutarse
@@ -67,7 +66,6 @@ sudo tail -n 20 /var/log/postgresql/postgresql-2024-09-19_120000.log
 ```
 
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab7/img3.png)
 
 ### Tarea 3. Utilizar pg_stat_statements para identificar las consultas más costosas
@@ -101,5 +99,4 @@ psql -c "SELECT query, calls, total_exec_time, rows, 100.0 * shared_blks_hit /
         FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 5;"
 ```
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab7/img4.png)
