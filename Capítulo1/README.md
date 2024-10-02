@@ -1,30 +1,26 @@
-# Instalación de Postgresql en Ubuntu Linux desde respositorio y primeros pasos
+# Práctica 1. Instalación de PostgreSQL en Ubuntu Linux desde respositorio y primeros pasos
+
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
-- Instalar Postgresql en un servidor Ubuntu Linux usando el repositorio oficial
-- Usar la herramienta psql para inspeccionar los objetos del sistema
+- Instalar Postgresql en un servidor Ubuntu Linux usando el repositorio oficial.
+- Usar la herramienta psql para inspeccionar los objetos del sistema.
 - Subir y baja la base de datos.
 
-## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
+## Objetivo visual:
 
 ![diagrama1](../images/lab1/img1.png)
 
 ## Duración aproximada:
 - 30 minutos.
 
-## Tabla de ayuda:
-<!-- Agregar una tabla con la información que pueda requerir el participante durante el laboratorio, como versión de software, IPs de servers, usuarios y credenciales de acceso. -->
-
-## Instrucciones 
-<!-- Proporciona pasos detallados sobre cómo configurar y administrar sistemas, implementar soluciones de software, realizar pruebas de seguridad, o cualquier otro escenario práctico relevante para el campo de la tecnología de la información -->
+## Instrucciones
 
 ### Tarea 1. Instalación de Postgresql en Ubuntu Linux desde repositorio oficial
-Paso 1. Actualizar el sistema Ubuntu
+Paso 1. Actualizar el sistema Ubuntu.
 ```shell
 sudo apt update
 ```
-Paso 2. Instalar paquetes requeridos para descargar los archivos 
+Paso 2. Instalar paquetes requeridos para descargar los archivos.
 ```shell
 sudo apt install wget ca-certificates
 ```
@@ -107,7 +103,7 @@ Paso 3. Ejecutar la utilidad psql y listar las tablas de la base de datos curso
 psql -d curso
 \dt
 ```
-### Resultado esperado
-En esta sección, se debe mostrar el resultado esperado de nuestro laboratorio
+### Resultado esperado:
+
 ![imagen resultado](../images/lab1/img3.png)
 
