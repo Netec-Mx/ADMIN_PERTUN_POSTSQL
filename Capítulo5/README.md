@@ -6,7 +6,6 @@ Al finalizar la práctica, serás capaz de:
 - Realizar una replicación síncrona de una instancia de postgresql.
 
 ## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
 
 ![diagrama1](../images/lab5/img1.png)
 
