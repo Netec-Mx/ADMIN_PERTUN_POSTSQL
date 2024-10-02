@@ -7,7 +7,6 @@ Al finalizar la práctica, serás capaz de:
 - Aprender a gestionar permisos de usuarios en PostgreSQL a nivel de base de datos, esquema y tabla.
 
 ## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
 
 ![diagrama1](../images/lab6/img1.png)
 
