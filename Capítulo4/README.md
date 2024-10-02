@@ -6,8 +6,7 @@ Al finalizar la práctica, serás capaz de:
 - Realizar un backup físico usando el comando pg_basebackup
 
 ## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
-
+ 
 ![diagrama1](../images/lab4/img1.png)
 
 ## Duración aproximada:
@@ -52,5 +51,4 @@ ls -al
 
 
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
 ![imagen resultado](../images/lab4/img2.png)
