@@ -1,41 +1,113 @@
-# Nombre del laboratorio 
-
+# Instalación de Postgresql en Ubuntu Linux desde respositorio y primeros pasos
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
-- Objetivo1
-- Objetivo2
-- Objetivo3
+- Instalar Postgresql en un servidor Ubuntu Linux usando el repositorio oficial
+- Usar la herramienta psql para inspeccionar los objetos del sistema
+- Subir y baja la base de datos.
 
 ## Objetivo Visual 
 Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
 
-![diagrama1](../images/img1.png)
+![diagrama1](../images/lab1/img1.png)
 
 ## Duración aproximada:
-- xx minutos.
+- 30 minutos.
 
 ## Tabla de ayuda:
-Agregar una tabla con la información que pueda requerir el participante durante el laboratorio, como versión de software, IPs de servers, usuarios y credenciales de acceso.
-| Contraseña | Correo | Código |
-| --- | --- | ---|
-| Netec2024 | edgardo@netec.com | 123abc |
+<!-- Agregar una tabla con la información que pueda requerir el participante durante el laboratorio, como versión de software, IPs de servers, usuarios y credenciales de acceso. -->
 
 ## Instrucciones 
 <!-- Proporciona pasos detallados sobre cómo configurar y administrar sistemas, implementar soluciones de software, realizar pruebas de seguridad, o cualquier otro escenario práctico relevante para el campo de la tecnología de la información -->
-### Tarea 1. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
 
-Paso 2. <!-- Añadir instrucción -->
-
-Paso 3. <!-- Añadir instrucción -->
-
-### Tarea 2. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
-
-Paso 2. <!-- Añadir instrucción -->
-
-Paso 3. <!-- Añadir instrucción -->
+### Tarea 1. Instalación de Postgresql en Ubuntu Linux desde repositorio oficial
+Paso 1. Actualizar el sistema Ubuntu
+```shell
+sudo apt update
+```
+Paso 2. Instalar paquetes requeridos para descargar los archivos 
+```shell
+sudo apt install wget ca-certificates
+```
+Paso 3. Agregar el repositorio APT oficial de Postgresql
+```shell
+wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+```
+Paso 4. Actualizar nuevamente el sistema para que tome el nuevo reposotirio
+```shell
+sudo apt update
+```
+Paso 5. Ejecutar el comando de instalación
+```shell
+sudo apt install postgresql-14 postgresql-contrib
+```
+Paso 6: Revisar el estado del servidor
+```shell
+sudo service postgresql status
+```
+Paso 6: Identificar los procesos de postgres que están ejecutándose
+```shell
+sudo service postgresql status
+```
+Paso 7: Bajar el servicio
+```shell
+sudo service postgresql stop
+```
+Paso 8: Subir el servicio
+```shell
+sudo service postgresql start
+```
+Paso 9: Consultar el estado del servicio
+```shell
+sudo service postgresql status
+```
 
 ### Resultado esperado
+![imagen resultado](../images/lab1/img2.png)
+
+### Tarea 2. Usar la herramienta psql para explorar los recursos de la base de datos creada.
+Paso 1. Conectarse localmente a la base de datos usando psql 
+```shell
+sudo sudo su - postgres
+psql 
+```
+Paso 2. Consultar las bases de datos 
+```shell
+\l 
+```
+
+Paso 3. Pedir ayuda sobre los comandos psql
+```shell
+\?
+```
+Paso 4. Pedir ayuda sobre comandos sql
+```shell
+\h
+```
+Paso 5. Explorar los distintos comandos psql
+```shell
+\h
+```
+### Tarea 3. Instalar la base de datos de ejemplo del curso.
+A continuación se instalará la base de datos de prácticas.
+Paso 1. Ingresar como usuario postgres
+```shell
+sudo su - postgres
+```
+Paso 2. Crear una base de datos llamada 'curso' con las opciones por defecto
+```shell
+createdb curso
+```
+Paso 2. Ejecutar el siguiente comando:
+```shell
+psql -d curso < base_datos_curso.sql
+```
+Paso 3. Ejecutar la utilidad psql y listar las tablas de la base de datos curso
+```shell
+psql -d curso
+\dt
+```
+### Resultado esperado
 En esta sección, se debe mostrar el resultado esperado de nuestro laboratorio
-![imagen resultado](../images/img3.png)
+![imagen resultado](../images/lab1/img3.png)
+
