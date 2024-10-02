@@ -12,11 +12,10 @@ Al finalizar la práctica, serás capaz de:
 ## Duración aproximada:
 - 30 minutos.
 
-## Tabla de ayuda:
 
 ## Instrucciones 
 ### Tarea 1. Configurar la replicación entre el servidor del curso (primario) con uno nuevo llamado secundario.
-Paso 1. Instalar una nuevo servidor virtual en Virtualbox usando la imagen de Ubuntu 24.02
+Paso 1. Instalar un nuevo servidor virtual en Virtualbox usando la imagen de Ubuntu 24.02
 Nombre de host: secundario
 IP : <IP_SECUNDARIO>
 
@@ -61,7 +60,7 @@ hot_standby = on
 sudo service postgresql start
 ```
 
-Paso 8. Probar la replicación. En el servidor primario, cree una tabla y inserte datos:
+Paso 8. Probar la replicación. En el servidor primario, cree una tabla e inserte datos:
 ```shell
 CREATE TABLE test_replication (id SERIAL PRIMARY KEY, data TEXT);
 INSERT INTO test_replication (data) VALUES ('Test replicación asíncrona');
