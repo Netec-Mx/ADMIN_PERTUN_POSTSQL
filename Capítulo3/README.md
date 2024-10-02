@@ -98,7 +98,7 @@ Paso 4. Consultar el estado de la tabla "bloat" con la extensión pgstattuple.
 ```shell 
 SELECT * FROM pgstattuple('bloat');
 ```
-Paso 5. Borrar la table bloat con el comando DELETE
+Paso 5. Borrar la tabla bloat con el comando DELETE
 ```shell 
 DELETE FROM bloat;
 ```
