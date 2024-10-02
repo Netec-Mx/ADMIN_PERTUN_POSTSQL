@@ -6,8 +6,7 @@ Al finalizar la práctica, serás capaz de:
 - Usar el comando explain para conocer el plan de ejecución de un query
 
 ## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
-
+ 
 ![diagrama1](../images/lab2/img1.png)
 
 ## Duración aproximada:
