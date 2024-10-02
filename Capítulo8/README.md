@@ -13,7 +13,6 @@ Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es 
 ## Duración aproximada:
 - 60 minutos.
 
-## Tabla de ayuda:
 
 ## Instrucciones
 
@@ -83,13 +82,13 @@ HAVING SUM(cantidad * valor_unitario) > 100
 ORDER BY mes, total_cantidad DESC;
 ```
 
-Paso 5. Crear las estadísticas extendidas para la tabla ventas:
+Paso 4. Crear las estadísticas extendidas para la tabla ventas:
 ```shell
 CREATE STATISTICS ext_stats_ventas (dependencies) ON  DATE_TRUNC('month',fecha), producto_id,valor_unitario, cantidad  FROM ventas;
 ANALYZE ventas;
 ```
 
-Paso 6. Ejecutar nuevamente la consulta y revisar los nuevos tiempos de ejecución.
+Paso 5. Ejecutar nuevamente la consulta y revisar los nuevos tiempos de ejecución.
 ```shell
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT producto_id, DATE_TRUNC('month', fecha) as mes, 
