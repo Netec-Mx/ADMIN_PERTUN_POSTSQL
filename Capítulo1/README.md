@@ -37,23 +37,23 @@ Paso 5. Ejecutar el comando de instalación
 ```shell
 sudo apt install postgresql-14 postgresql-contrib
 ```
-Paso 6: Revisar el estado del servidor
+Paso 6. Revisar el estado del servidor
 ```shell
 sudo service postgresql status
 ```
-Paso 6: Identificar los procesos de postgres que están ejecutándose
+Paso 7. Identificar los procesos de postgres que están ejecutándose
 ```shell
 sudo service postgresql status
 ```
-Paso 7: Bajar el servicio
+Paso 8. Bajar el servicio
 ```shell
 sudo service postgresql stop
 ```
-Paso 8: Subir el servicio
+Paso 9. Subir el servicio
 ```shell
 sudo service postgresql start
 ```
-Paso 9: Consultar el estado del servicio
+Paso 10. Consultar el estado del servicio
 ```shell
 sudo service postgresql status
 ```
@@ -94,11 +94,11 @@ Paso 2. Crear una base de datos llamada 'curso' con las opciones por defecto
 ```shell
 createdb curso
 ```
-Paso 2. Ejecutar el siguiente comando:
+Paso 3. Ejecutar el siguiente comando:
 ```shell
 psql -d curso < base_datos_curso.sql
 ```
-Paso 3. Ejecutar la utilidad psql y listar las tablas de la base de datos curso
+Paso 4. Ejecutar la utilidad psql y listar las tablas de la base de datos curso
 ```shell
 psql -d curso
 \dt
