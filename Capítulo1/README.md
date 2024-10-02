@@ -2,7 +2,7 @@
 
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
-- Instalar Postgresql en un servidor Ubuntu Linux usando el repositorio oficial.
+- Instalar Postgresql en un servidor Ubuntu Linux usando el repositorio oficial..
 - Usar la herramienta psql para inspeccionar los objetos del sistema.
 - Subir y baja la base de datos.
 
