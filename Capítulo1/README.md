@@ -141,4 +141,4 @@ psql -d curso
 
 ## [Índice principal](../README.md)
 
-## [Práctica 2. Creación de índices B-tree](./Capítulo2/README.md)
+## [Práctica 2. Creación de índices B-tree](../Capítulo2/README.md)
