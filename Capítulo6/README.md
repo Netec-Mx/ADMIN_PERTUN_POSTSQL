@@ -159,6 +159,6 @@ Tarea 3
 
 ## [Índice principal](../README.md)
 
-## [Práctica 5. Replicación asíncrona y síncrona](Capítulo5/README.md)
+## [Práctica 5. Replicación asíncrona y síncrona](../Capítulo5/README.md)
 
-## [Práctica 7. Configuración y monitoreo de la base de datos](./Capítulo7/README.md)
+## [Práctica 7. Configuración y monitoreo de la base de datos](../Capítulo7/README.md)
