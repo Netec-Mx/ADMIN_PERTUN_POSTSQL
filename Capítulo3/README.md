@@ -45,7 +45,7 @@ Paso 4. Añadir datos de prueba a la tabla recien creada.
 BOB> INSERT INTO mvcc_lab SELECT a,a from generate_series(1,10) as a;
 ```
 
-Paso 5. Iniciar una transacción en la ventana ALICE que actualice el registro con id=1 al valor 10 de la tabla mvcc_lab
+Paso 5. Iniciar una transacción en la ventana ALICE que actualice el registro con id=1 al valor 10 de la tabla mvcc_lab.
 
 ```shell 
 ALICE> BEGIN;
@@ -53,7 +53,7 @@ ALICE> UPDATE mvcc_lab SET valor=10 WHERE id=1;
 UPDATE 1
 ALICE>
 ```
-Paso 6. Iniciar una transacción en la ventana BOB que actualice el registro con id=1 al valor 20 de la tabla mvcc_lab
+Paso 6. Iniciar una transacción en la ventana BOB que actualice el registro con id=1 al valor 20 de la tabla mvcc_lab.
 
 ```shell 
 BOB> BEGIN;
@@ -61,7 +61,7 @@ BOB> UPDATE mvcc_lab SET valor=20 WHERE id=1;
 _(esperando...)
 ```
 
-Paso 7. Confirmar la transacción de la terminal ALICE y consulte el valor del registro con id = 1
+Paso 7. Confirmar la transacción de la terminal ALICE y consulte el valor del registro con id = 1.
 
 ```shell 
 ALICE> COMMIT;
