@@ -61,7 +61,7 @@ BOB> UPDATE mvcc_lab SET valor=20 WHERE id=1;
 _(esperando...)
 ```
 
-Paso 7. Confirme la transacción de la terminal ALICE y consulte el valor del registro con id = 1
+Paso 7. Confirmar la transacción de la terminal ALICE y consulte el valor del registro con id = 1
 
 ```shell 
 ALICE> COMMIT;
@@ -72,7 +72,7 @@ ALICE> SELECT valor FROM mvcc_lab WHERE id=1;
 (1 fila)
 ```
 
-Paso 8. Consulte el valor del registro id=1 en la terminal BOB.
+Paso 8. Consultar el valor del registro id=1 en la terminal BOB.
 
 ```shell 
 BOB> SELECT valor FROM mvcc_lab WHERE id=1;
@@ -82,7 +82,7 @@ BOB> SELECT valor FROM mvcc_lab WHERE id=1;
 (1 fila)
 ```
 
-Paso 9. Confirme la transacción en la terminal BOB y consulte el valor del registro en la terminal ALICE.
+Paso 9. Confirmar la transacción en la terminal BOB y consulte el valor del registro en la terminal ALICE.
 
 ```shell 
 UPDATE 1 -- Mensaje cuando ALICE confirmó transaccion
