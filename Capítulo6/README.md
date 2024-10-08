@@ -32,11 +32,11 @@ Paso 2. Crear un nuevo usuario llamado 'usuario_prueba'.
 CREATE USER user_prueba WITH PASSWORD 'clave_segura';
 ```
 
-Paso 3. Verificar que el usuario se haya creado correctamente
+Paso 3. Verificar que el usuario se haya creado correctamente.
 ```shell
 \du
 ```
-Paso 4. Crear una nueva base de datos llamada 'prueba_db'
+Paso 4. Crear una nueva base de datos llamada 'prueba_db'.
 ```shell
 CREATE DATABASE prueba_db;
 ```
@@ -56,7 +56,7 @@ ALTER USER user_prueba WITH PASSWORD 'clave_segura';
 
 ### Tarea 2. Configurar acceso remoto a la base de datos 'prueba_db' del usuario 'user_prueba' desde el host 'host_remoto'
 
-Paso 1. Editar el archivo postgresql.conf y cambie la línea listen_address = 'localhost' por listen_address = '*':
+Paso 1. Editar el archivo postgresql.conf y cambiar la línea listen_address = 'localhost' por listen_address = '*':
 
 ```shell
 sudo vi /etc/postgresql/[version]/main/postgresql.conf
@@ -121,7 +121,7 @@ CREATE SCHEMA esquema_prueba;
 CREATE TABLE esquema_prueba.tabla_prueba (id SERIAL PRIMARY KEY, nombre VARCHAR(50));
 ```
 
-Paso 5. Otorgar permisos de lectura al user_lectura
+Paso 5. Otorgar permisos de lectura al user_lectura.
 
 ```shell
 GRANT USAGE ON SCHEMA esquema_prueba TO user_lectura;
