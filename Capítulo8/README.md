@@ -44,7 +44,7 @@ Paso 4. Entrar como usuario postgres y eliminar el cluster main de la nueva vers
 pg_dropcluster 15 main --stop
 ```
 
-Paso 5. Ejecutar el comando pg_upgradecluster
+Paso 5. Ejecutar el comando pg_upgradecluster.
 
 ```shell
 pg_upgradecluster 14 main
