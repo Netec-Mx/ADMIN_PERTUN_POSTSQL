@@ -23,7 +23,7 @@ Comando de creación de índices:
 CREATE INDEX ON tabla(campo);
 ```
 
-Para las opciones de CREATE INDEX se puede consutar la ayuda con:
+Para las opciones de CREATE INDEX se puede consultar la ayuda con:
 
 ```shell
 \h CREATE INDEX
