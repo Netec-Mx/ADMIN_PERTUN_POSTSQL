@@ -80,6 +80,6 @@ EXPLAIN SELECT a.id, a.fecha FROM facturas a JOIN facturas_item b ON a.id = b.fa
 
 ## [Índice principal](../README.md)
 
-## [Práctica 1. Instalación de PostgreSQL en Ubuntu Linux](./Capítulo1/README.md)
+## [Práctica 1. Instalación de PostgreSQL en Ubuntu Linux](../Capítulo1/README.md)
 
-## [Práctica 3. Manejo de transacciones y MVCC](./Capítulo3/README.md)
+## [Práctica 3. Manejo de transacciones y MVCC](../Capítulo3/README.md)
