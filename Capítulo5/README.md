@@ -148,3 +148,9 @@ curso=# SELECT sync_state FROM pg_stat_replication;
     sync
 (1 fila )
 ```
+
+## [Índice principal](../README.md)
+
+## [Práctica 4. Realización de backups lógicos y físicos](./Capítulo4/README.md)
+
+## [Práctica 6. Gestión de usuarios y autenticación, acceso remoto y permisos](./Capítulo6/README.md)
