@@ -144,12 +144,21 @@ Paso 7. Revise los permisos asignados.
 ### Resultado esperado:
 
 Tarea 1
+
 ![imagen resultado](../images/lab6/img3.png)
 
 Tarea 2
-- Debe poder editar los archivos de configuración de PostgreSQL.
-- Debe poder reiniciar el servicio de PostgreSQL sin errores.
-- Debe poder conectarse a la base de datos desde una máquina remota usando la dirección IP del servidor.
+
+- Debe poder editar los archivos de configuración de PostgreSQL. <br>
+- Debe poder reiniciar el servicio de PostgreSQL sin errores.<br>
+- Debe poder conectarse a la base de datos desde una máquina remota usando la dirección IP del servidor.<br>
 
 Tarea 3
+
 ![imagen resultado](../images/lab6/img2.png)
+
+## [Índice principal](../README.md)
+
+## [Práctica 5. Replicación asíncrona y síncrona](Capítulo5/README.md)
+
+## [Práctica 7. Configuración y monitoreo de la base de datos](./Capítulo7/README.md)
