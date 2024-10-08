@@ -138,3 +138,7 @@ psql -d curso
 ### Resultado esperado:
 
 ![imagen resultado](../images/lab1/img3.png)
+
+## [Índice principal](../README.md)
+
+## [Práctica 2. Creación de índices B-tree](./Capítulo2/README.md)
