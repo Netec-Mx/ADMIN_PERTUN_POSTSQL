@@ -1,4 +1,4 @@
-# Actualización de la versión mayor de Postgresql o upgrade y estadísticas extendidas.
+# Práctica 8. Actualización de la versión mayor de Postgresql o upgrade y estadísticas extendidas
 
 ## Objetivo de la práctica:
 
