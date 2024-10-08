@@ -122,3 +122,7 @@ ORDER BY mes, total_cantidad DESC;
 - Se espera una mejoría en el rendimiento.
   
 ![imagen resultado](../images/lab8/img3.png)
+
+## [Índice principal](../README.md)
+
+## [Práctica 7. Configuración y monitoreo de la base de datos](./Capítulo7/README.md)
