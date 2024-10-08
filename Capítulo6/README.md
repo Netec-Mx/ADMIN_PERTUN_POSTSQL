@@ -20,31 +20,31 @@ Al finalizar la práctica, serás capaz de:
 
 ### Tarea 1. Crear usuario y asignar privilegios.
 
-Paso 1. Inicie sesión en PostgreSQL como superusuario.
+Paso 1. Iniciar sesión en PostgreSQL como superusuario.
 
 ```shell
 sudo -u postgres psql
 ```
 
-Paso 2. Cree un nuevo usuario llamado 'usuario_prueba'.
+Paso 2. Crear un nuevo usuario llamado 'usuario_prueba'.
 
 ```shell
 CREATE USER user_prueba WITH PASSWORD 'clave_segura';
 ```
 
-Paso 3. Verifique que el usuario se haya creado correctamente
+Paso 3. Verificar que el usuario se haya creado correctamente
 ```shell
 \du
 ```
-Paso 4. Cree una nueva base de datos llamada 'prueba_db'
+Paso 4. Crear una nueva base de datos llamada 'prueba_db'
 ```shell
 CREATE DATABASE prueba_db;
 ```
-Paso 5. Otorgue todos los privilegios sobre la base de datos 'prueba_db' al usuario 'user_prueba':
+Paso 5. Otorgar todos los privilegios sobre la base de datos 'prueba_db' al usuario 'user_prueba':
 ```shell
 GRANT ALL PRIVILEGES ON DATABASE prueba_db TO user_prueba;
 ```
-Paso 6. Verifique que el usuario tenga todos los privilegios sobre la base de datos prueba_db.
+Paso 6. Verificar que el usuario tenga todos los privilegios sobre la base de datos prueba_db.
 ```shell
 \l
 ```
@@ -56,19 +56,19 @@ ALTER USER user_prueba WITH PASSWORD 'clave_segura';
 
 ### Tarea 2. Configurar acceso remoto a la base de datos 'prueba_db' del usuario 'user_prueba' desde el host 'host_remoto'
 
-Paso 1. Edite el archivo postgresql.conf y cambie la línea listen_address = 'localhost' por listen_address = '*':
+Paso 1. Editar el archivo postgresql.conf y cambie la línea listen_address = 'localhost' por listen_address = '*':
 
 ```shell
 sudo vi /etc/postgresql/[version]/main/postgresql.conf
 ```
 
-Paso 2. Edite el archivo pg_hba.conf.
+Paso 2. Editar el archivo pg_hba.conf.
 
 ```shell
 sudo vi /etc/postgresql/[version]/main/pg_hba.conf
 ```
 
-Agrege la siguiente línea: 
+Agregar la siguiente línea: 
 
 ```shell
 host    prueba_db    user_prueba    host_remoto/32    md5
@@ -86,7 +86,7 @@ Paso 4. Instalar la utilidad psql en la máquina remota con ip 'host_remoto'
 sudo apt-get install postgresql-client
 ```
 
-Paso 5. Intente conectarse remotamente.
+Paso 5. Intentar conectarse remotamente.
 
 ```shell
 [host_remoto]# psql -h <ip del servidor> -U user_prueba -d prueba_db
@@ -94,48 +94,48 @@ Paso 5. Intente conectarse remotamente.
 
 ### Tarea 3. Crear usuarios con permisos específicos sobre recursos.
 
-Paso 1. Abra una sesion de psql como administrador sobre la base de datos curso.
+Paso 1. Abrir una sesion de psql como administrador sobre la base de datos curso.
 
 ```shell
 sudo psql curso
 ```
 
-Paso 2. Cree dos nuevos usuarios.
+Paso 2. Crear dos nuevos usuarios.
 
 ```shell
 CREATE USER user_lectura WITH PASSWORD 'pass_lectura';
 CREATE USER user_escritura WITH PASSWORD 'pass_escritura';
 ```
 
-Paso 3. Cree una nueva base de datos y conéctese a ella:
+Paso 3. Crear una nueva base de datos y conéctese a ella:
 
 ```shell
 CREATE DATABASE permisos_db;
 \c permisos_db
 ```
 
-Paso 4. Cree un nuevo esquema y una tabla.
+Paso 4. Crear un nuevo esquema y una tabla.
 
 ```shell
 CREATE SCHEMA esquema_prueba;
 CREATE TABLE esquema_prueba.tabla_prueba (id SERIAL PRIMARY KEY, nombre VARCHAR(50));
 ```
 
-Paso 5. Otorgue permisos de lectura al user_lectura
+Paso 5. Otorgar permisos de lectura al user_lectura
 
 ```shell
 GRANT USAGE ON SCHEMA esquema_prueba TO user_lectura;
 GRANT SELECT ON ALL TABLES IN SCHEMA esquema_prueba TO user_lectura;
 ```
 
-Paso 6. Otorgue permisos de escritura al user_escritura:
+Paso 6. Otorgar permisos de escritura al user_escritura:
 
 ```shell
 GRANT USAGE, CREATE ON SCHEMA esquema_prueba TO user_escritura;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA esquema_prueba TO user_escritura;
 ```
 
-Paso 7. Revise los permisos asignados.
+Paso 7. Revisar los permisos asignados.
 
 ```shell
 \dn+
