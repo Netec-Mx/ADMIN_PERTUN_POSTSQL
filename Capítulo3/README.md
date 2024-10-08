@@ -154,6 +154,6 @@ SELECT * FROM pgstattuple('bloat');
 
 ## [Índice principal](../README.md)
 
-## [Práctica 2. Creación de índices B-tree](./Capítulo2/README.md)
+## [Práctica 2. Creación de índices B-tree](../Capítulo2/README.md)
 
-## [Práctica 4. Realización de backups lógicos y físicos](./Capítulo4/README.md)
+## [Práctica 4. Realización de backups lógicos y físicos](../Capítulo4/README.md)
