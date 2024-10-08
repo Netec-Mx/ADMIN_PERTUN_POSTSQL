@@ -125,4 +125,4 @@ ORDER BY mes, total_cantidad DESC;
 
 ## [Índice principal](../README.md)
 
-## [Práctica 7. Configuración y monitoreo de la base de datos](./Capítulo7/README.md)
+## [Práctica 7. Configuración y monitoreo de la base de datos](../Capítulo7/README.md)
