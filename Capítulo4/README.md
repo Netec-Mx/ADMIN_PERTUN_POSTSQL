@@ -68,6 +68,6 @@ ls -al
 
 ## [Índice principal](../README.md)
 
-## [Práctica 3. Manejo de transacciones y MVCC](./Capítulo3/README.md)
+## [Práctica 3. Manejo de transacciones y MVCC](../Capítulo3/README.md)
 
-## [Práctica 5. Replicación asíncrona y síncrona](Capítulo5/README.md)
+## [Práctica 5. Replicación asíncrona y síncrona](../Capítulo5/README.md)
