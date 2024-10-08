@@ -19,7 +19,7 @@ Al finalizar la práctica, serás capaz de:
 
 ### Tarea 1. Configurar la replicación entre el servidor del curso (primario) con uno nuevo llamado secundario.
 
-Paso 1. Instalar un nuevo servidor virtual en Virtualbox usando la imagen de Ubuntu 24.02
+Paso 1. Instalar un nuevo servidor virtual en Virtualbox usando la imagen de Ubuntu 24.02.
 
 Nombre de host: secundario <br>
 IP : <IP_SECUNDARIO>
