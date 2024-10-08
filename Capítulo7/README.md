@@ -19,9 +19,9 @@ Al finalizar la práctica, serás capaz de:
 
 ## Instrucciones 
 
-### Tarea 1. Modifique el archivo postgresql.conf para aumentar el número máximo de conexiones a 200.
+### Tarea 1. Modificar el archivo postgresql.conf para aumentar el número máximo de conexiones a 200.
 
-Paso 1. Edite el archivo postgresql.conf.
+Paso 1. Editar el archivo postgresql.conf.
 
 ```shell
 sudo vi /etc/postgresql/[version instalada]/main/postgresql.conf
@@ -41,7 +41,7 @@ Paso 3. Reiniciar el servicio postgresql.
 sudo service postgresql restart
 ```
 
-Paso 4. Verificar el nuevo valor de max_connections
+Paso 4. Verificar el nuevo valor de max_connections.
 
 ```shell
 psql -c "SHOW max_connections;"
@@ -51,9 +51,9 @@ psql -c "SHOW max_connections;"
 
 ![imagen resultado](../images/lab7/img2.png)
 
-### Tarea 2. Configurar el logging para capturar consultas que tarden más de 1 segundo en ejecutarse
+### Tarea 2. Configurar el logging para capturar consultas que tarden más de 1 segundo en ejecutarse.
 
-Paso 1. Edite el archivo postgresql.conf.
+Paso 1. Editar el archivo postgresql.conf.
 
 ```shell
 sudo vi /etc/postgresql/[version instalada]/main/postgresql.conf
@@ -65,7 +65,7 @@ Paso 2. Modificar o añadir la siguiente línea:
 log_min_duration_statement = 1000  # log queries que requiren más de un segundo
 ```
 
-Paso 3. Guardar los cambios y salir del editor
+Paso 3. Guardar los cambios y salir del editor.
 
 Paso 4. Reiniciar el servicio postgresql.
 
@@ -73,13 +73,13 @@ Paso 4. Reiniciar el servicio postgresql.
 sudo service postgresql restart
 ```
 
-Paso 5. Ejecutar una consulta lenta para probar
+Paso 5. Ejecutar una consulta lenta para probar.
 
 ```shell
 psql -c "SELECT pg_sleep(2); SELECT 'Consulta lenta';"
 ```
 
-Paso 6. Verificar el log
+Paso 6. Verificar el log.
 
 ```shell
 sudo tail -n 20 /var/log/postgresql/postgresql-2024-09-19_120000.log
@@ -89,9 +89,9 @@ sudo tail -n 20 /var/log/postgresql/postgresql-2024-09-19_120000.log
 
 ![imagen resultado](../images/lab7/img3.png)
 
-### Tarea 3. Utilizar pg_stat_statements para identificar las consultas más costosas
+### Tarea 3. Utilizar pg_stat_statements para identificar las consultas más costosas.
 
-Paso 1. Edite el archivo postgresql.conf.
+Paso 1. Editar el archivo postgresql.conf.
 
 ```shell
 sudo vi /etc/postgresql/[version instalada]/main/postgresql.conf
