@@ -134,3 +134,9 @@ psql -c "SELECT query, calls, total_exec_time, rows, 100.0 * shared_blks_hit /
 ### Resultado esperado:
 
 ![imagen resultado](../images/lab7/img4.png)
+
+## [Índice principal](../README.md)
+
+## [Práctica 6. Gestión de usuarios y autenticación, acceso remoto y permisos](./Capítulo6/README.md)
+
+## [Práctica 8. Actualización de la versión mayor de PostgreSQL o upgrade y estadísticas extendidas](./Capítulo8/README.md)
