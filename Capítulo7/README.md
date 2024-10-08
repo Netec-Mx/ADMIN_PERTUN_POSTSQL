@@ -1,4 +1,4 @@
-# Configuración y monitoreo de la base de datos
+# Práctica 7. Configuración y monitoreo de la base de datos
 
 ## Objetivo de la práctica:
 
