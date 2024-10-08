@@ -55,7 +55,7 @@ Paso 2. Ejecutar el comando pg_basebackup y comprimir la salida con gzip.
 pg_basebackup -D /ruta/al/directorio/de/backup -F tar -z -P
 ```
 
-Paso 3. Revisar los archivos generados
+Paso 3. Revisar los archivos generados.
 
 ```shell
 cd /ruta/al/directorio/de/backup
