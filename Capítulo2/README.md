@@ -1,4 +1,4 @@
-# Práctica 2. Creación de índices b-tree
+# Práctica 2. Creación de índices B-tree
 
 ## Objetivo de la práctica:
 
