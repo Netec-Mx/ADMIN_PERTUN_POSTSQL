@@ -84,25 +84,25 @@ sudo service postgresql status
 ![imagen resultado](../images/lab1/img2.png)
 
 ### Tarea 2. Usar la herramienta psql para explorar los recursos de la base de datos creada.
-Paso 1. Conectarse localmente a la base de datos usando psql 
+Paso 1. Conectarse localmente a la base de datos usando psql. 
 ```shell
 sudo sudo su - postgres
 psql 
 ```
-Paso 2. Consultar las bases de datos 
+Paso 2. Consultar las bases de datos. 
 ```shell
 \l 
 ```
 
-Paso 3. Pedir ayuda sobre los comandos psql
+Paso 3. Pedir ayuda sobre los comandos psql.
 ```shell
 \?
 ```
-Paso 4. Pedir ayuda sobre comandos sql
+Paso 4. Pedir ayuda sobre comandos sql.
 ```shell
 \h
 ```
-Paso 5. Explorar los distintos comandos psql
+Paso 5. Explorar los distintos comandos psql.
 ```shell
 \h
 ```
