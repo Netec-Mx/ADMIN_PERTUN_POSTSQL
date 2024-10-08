@@ -1,4 +1,4 @@
-# Manejo de transacciones y MVCC
+# Práctica 3. Manejo de transacciones y MVCC
 
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
