@@ -32,7 +32,7 @@ wal_level = replica
 max_wal_senders = 3
 ```
 
-Paso 3. En el servidor primario, edite pg_hba.conf para permitir la conexión del secundario.
+Paso 3. En el servidor primario, editar pg_hba.conf para permitir la conexión del secundario.
 
 ```shell
 host replication all <IP_SECUNDARIO>/32 md5
@@ -49,20 +49,20 @@ CREATE USER replicator WITH replication PASSWORD 'secret';
 sudo service postgresql restart
 ```
 
-Paso 5. En el secundario pare el servicio y borre el directorio de datos.
+Paso 5. En el secundario parar el servicio y borrar el directorio de datos.
 
 ```shell
 sudo service postgresql stop
 sudo rm -rf /var/lib/postgresql/[version]/main/*
 ```
 
-Paso 6. En el secundario realice un backup físico del primario.
+Paso 6. En el secundario realizar un backup físico del primario.
 
 ```shell
 pg_basebackup -h <IP_PRIMARIO> -D /var/lib/postgresql/[version]/main -P -U replicator -R
 ```
 
-Paso 7. Edite la configuración de postresql en el servidor secundario y luego inicie el servicio.
+Paso 7. Editar la configuración de postresql en el servidor secundario y luego iniciar el servicio.
 
 ```shell
 hot_standby = on
@@ -72,20 +72,20 @@ hot_standby = on
 sudo service postgresql start
 ```
 
-Paso 8. Probar la replicación. En el servidor primario, cree una tabla e inserte datos:
+Paso 8. Probar la replicación. En el servidor primario, crear una tabla e insertar datos:
 
 ```shell
 CREATE TABLE test_replication (id SERIAL PRIMARY KEY, data TEXT);
 INSERT INTO test_replication (data) VALUES ('Test replicación asíncrona');
 ```
 
-Paso 9. En el servidor secundario, verifique que los datos se hayan replicado.
+Paso 9. En el servidor secundario, verificar que los datos se hayan replicado.
 
 ```shell
 SELECT * FROM test_replication;
 ```
 
-Paso 10. En el servidor primario revise el estado de la replicación.
+Paso 10. En el servidor primario revisar el estado de la replicación.
 
 ```shell
 SELECT * pg_stat_replication;
